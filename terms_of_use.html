@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garage Sale</title>
+    <!-- Linking Bootstrap CSS from local files -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <!-- Linking your external CSS file from the "css" folder -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- linking to the style sheet containing social media icons-->
+    <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--linking to bootstrap.bundle.js file-->
+    <script src="js/bootstrap/bootstrap.bundle.js"></script>
+    <!-- javascript function for login popup window-->
+    <script src="./js/popup.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="d-flex align-items-left">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="./index.html">
+                    <img src="images/logo.jpg" alt="Logo"></a> <!-- Add your logo image here -->
+                </div>
+                <!-- Navbar -->
+            <nav class="navbar">
+                <ul>
+                    <li class="nav-item d-inline-block pr-2"> <!-- Added inline style -->
+                        <a class="nav-link" href="./index.html">Search</a>
+                    </li>
+					<b>|</b>
+                    <li class="nav-item d-inline-block pr-2"> <!-- Added inline style -->
+                        <a class="nav-link" href="./create.html">Create</a>
+                    </li>
+					<b>|</b>
+                    <li class="nav-item d-inline-block pr-2"> 
+                        <a class="nav-link" href="./about_us.html">About Us</a>
+                    </li>
+                </ul>
+            </nav>
+                <!-- Buttons -->
+			<div class="header-buttons ml-auto">
+				<a href="./contact_us.html" class="btn btn-primary">Contact Us</a>
+				<a href="#" class="btn btn-secondary" onclick="togglePopup()" id="login">Log In</a>
+				<a href="./sign-up.html" class="btn btn-success" id="signup">Sign Up</a>
+                <a href="#" class="btn btn-success" id="logout" style="display: none;">Log Out</a>
+			</div>
+            </div>
+        </div>	
+    </header>
+    <main>
+        <div class="container">
+            <h4>Terms of Use</h4>
+            <p>Welcome to Garage Sale! These Terms of Use govern your use of the Garage Sale website and all related services, including but not limited to browsing, posting, and interacting with other users.</p>
+
+            <h4>1. Acceptance of Terms</h4>
+            <p>By accessing or using the Garage Sale website, you agree to be bound by these Terms of Use and all applicable laws and regulations. If you do not agree with any part of these terms, you may not use the website.</p>
+
+            <h4>2. User Responsibilities</h4>
+            <p> - **Account**: You may be required to create an account to access certain features of the website. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account.
+            <br>- **Content**: You are solely responsible for any content you post on Garage Sale, including but not limited to listings, comments, and messages. You agree not to post any content that is unlawful, defamatory, infringing, or otherwise objectionable.
+            <br>- **Accuracy**: You agree to provide accurate and up-to-date information when creating your account and posting listings. Misleading or false information is strictly prohibited.</p>
+
+            <h4>3. Use of the Website</h4>
+            <p>- **Prohibited Activities**: You may not use the Garage Sale website for any unlawful or unauthorized purpose. This includes, but is not limited to, violating any applicable laws, infringing on the rights of others, or engaging in fraudulent or deceptive behavior.
+            <br>- **Intellectual Property**: All content on the Garage Sale website, including text, graphics, logos, and images, is the property of Garage Sale or its licensors and is protected by copyright and other intellectual property laws. You may not use, copy, or distribute any content from the website without prior written permission.</p>
+
+            <h4>4. Limitation of Liability</h4>
+            <p>- **No Warranty**: Garage Sale provides the website and its services on an "as is" and "as available" basis without any warranties of any kind, express or implied. We do not guarantee the accuracy, reliability, or availability of the website or its content.
+            <br>- **Limitation of Liability**: In no event shall Garage Sale or its affiliates be liable for any indirect, incidental, special, or consequential damages arising out of or in connection with your use of the website, including but not limited to loss of data, revenue, or profits.</p>
+
+            <h4>5. Changes to the Terms</h4>
+            <p>Garage Sale reserves the right to update or modify these Terms of Use at any time without prior notice. Your continued use of the website after any such changes constitutes your acceptance of the new terms.</p>
+
+            <h4>6. Governing Law</h4>
+            <p>These Terms of Use shall be governed by and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law provisions.</p>
+
+            <h4>Contact Us</h4>
+            <p>If you have any questions or concerns about these Terms of Use, please contact us at [Your Contact Information].</p>
+        </div>
+    </main>
+
+    <!-- login popup window-->    
+    <div id="popupOverlay" class="overlay-container"> 
+        <div class="popup-box"> 
+            <h2 style="color: 6DB1BF;">Log In</h2> 
+            <form class="form-container"> 
+                <label class="form-label" for="username"> Username: </label> 
+                <input class="form-input" type="text" placeholder="Enter your username" id="username" name="username" required> 
+    
+                <label class="form-label" for="psw">Password:</label> 
+                <input class="form-input" type="password" placeholder="Enter your password" id="psw" name="psw" required> 
+    
+                <button class="btn btn-new" type="submit">Submit </button> 
+            </form> 
+    
+            <button class="btn-close-popup" onclick="togglePopup()">Close </button> 
+        </div> 
+    </div> 
+
+    <footer class="text-left py-3">
+        <div class="container">
+            <nav class="navbar">
+                <ul>
+                    <li class="nav-item d-inline-block pr-2"> <!-- Added inline style -->
+                        <a class="nav-link" href="./contact_us.html">Contact</a>
+                    </li>
+                    <b>|</b>
+                    <li class="nav-item d-inline-block pr-2"> 
+                        <a class="nav-link" href="./terms_of_use.html">Terms of use</a>
+                    </li>
+                    <b>|</b>
+                    <li class="nav-item d-inline-block pr-2"> <!-- Added inline style -->
+                        <a class="nav-link" href="./privacy_policy.html">Privacy Policy</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script> //The function wouldn't work when inside of the popup.js file
+        function togglePopup() { 
+        const overlay = document.getElementById('popupOverlay'); 
+        overlay.classList.toggle('show'); 
+        } 
+    </script>
+    
+</body>
+</html>

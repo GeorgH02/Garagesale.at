@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garage Sale</title>
+    <!-- Linking Bootstrap CSS from local files -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <!-- Linking your external CSS file from the "css" folder -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- linking to the style sheet containing social media icons-->
+    <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--linking to bootstrap.bundle.js file-->
+    <script src="js/bootstrap/bootstrap.bundle.js"></script>
+    <!-- javascript function for login popup window-->
+    <script src="./js/popup.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="d-flex align-items-left">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="./index.html">
+                    <img src="images/logo.jpg" alt="Logo"></a> <!-- Add your logo image here -->
+                </div>
+                <!-- Navbar -->
+            <nav class="navbar">
+                <ul>
+                    <li class="nav-item d-inline-block pr-2"> <!-- Added inline style -->
+                        <a class="nav-link" href="./index.html">Search</a>
+                    </li>
+					<b>|</b>
+                    <li class="nav-item d-inline-block pr-2"> <!-- Added inline style -->
+                        <a class="nav-link" href="./create.html">Create</a>
+                    </li>
+					<b>|</b>
+                    <li class="nav-item d-inline-block pr-2"> 
+                        <a class="nav-link" href="./about_us.html">About Us</a>
+                    </li>
+                </ul>
+            </nav>
+                <!-- Buttons -->
+                <div class="header-buttons ml-auto">
+                    <a href="./contact_us.html" class="btn btn-primary">Contact Us</a>
+                    <a href="#" class="btn btn-secondary" onclick="togglePopup()" id="login">Log In</a>
+                    <a href="./sign-up.html" class="btn btn-success" id="signup">Sign Up</a>
+                    <a href="#" class="btn btn-success" id="logout" style="display: none;">Log Out</a>
+                </div>
+            </div>
+        </div>	
+    </header>
+    <main>
+        <div class="container">
+            <h4>Privacy Policy</h4>
+            <p>Welcome to Garage Sale! This Privacy Policy describes how Garage Sale collects, uses, and protects the personal information you provide on our website.</p>
+
+            <h4>1. Information We Collect</h4>
+            <p> - **Personal Information**: We may collect personal information such as your name, email address, and contact information when you create an account or interact with our website.
+            <br>- **Usage Data**: We may also collect usage data, including your IP address, browser type, and operating system, to analyze website usage and improve our services.</p>
+
+            <h4>2. How We Use Your Information</h4>
+            <p> - **Provide Services**: We use your personal information to provide the services offered on our website, including facilitating transactions and communicating with you.
+            <br>- **Improve Services**: We may use usage data to analyze website usage patterns and improve our services and user experience.
+            <br>- **Marketing**: With your consent, we may use your email address to send promotional emails and marketing communications.</p>
+
+            <h4>3. Information Sharing</h4>
+            <p>We may share your personal information with third-party service providers who assist us in operating our website, conducting our business, or providing services to you. We do not sell, trade, or rent your personal information to third parties without your consent.</p>
+
+            <h4>4. Data Security</h4>
+            <p>We take reasonable precautions to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+            <h4>5. Your Choices</h4>
+            <p> - **Account Information**: You may update or delete your account information at any time by logging into your account settings.
+            <br>- **Marketing Communications**: You may opt-out of receiving promotional emails from us by following the unsubscribe instructions included in the emails.</p>
+
+            <h4>6. Changes to this Privacy Policy</h4>
+            <p>We reserve the right to update or modify this Privacy Policy at any time without prior notice. Your continued use of the website after any such changes constitutes your acceptance of the new terms.</p>
+
+            <h4>Contact Us</h4>
+            <p>If you have any questions or concerns about this Privacy Policy, please contact us at [Your Contact Information].</p>
+        </div>
+    </main>
+
+    <!-- login popup window-->    
+    <div id="popupOverlay" class="overlay-container"> 
+        <div class="popup-box"> 
+            <h2 style="color: 6DB1BF;">Log In</h2> 
+            <form class="form-container"> 
+                <label class="form-label" for="username"> Username: </label> 
+                <input class="form-input" type="text" placeholder="Enter your username" id="username" name="username" required> 
+    
+                <label class="form-label" for="psw">Password:</label> 
+                <input class="form-input" type="password" placeholder="Enter your password" id="psw" name="psw" required> 
+    
+                <button class="btn btn-new" type="submit">Submit </button> 
+            </form> 
+    
+            <button class="btn-close-popup" onclick="togglePopup()">Close </button> 
+        </div> 
+    </div> 
+
+    <footer class="text-left py-3">
+        <div class="container">
+            <nav class="navbar">
+                <ul>
+                    <li class="nav-item d-inline-block pr-2"> <!-- Added inline style -->
+                        <a class="nav-link" href="./contact_us.html">Contact</a>
+                    </li>
+                    <b>|</b>
+                    <li class="nav-item d-inline-block pr-2"> 
+                        <a class="nav-link" href="./terms_of_use.html">Terms of use</a>
+                    </li>
+                    <b>|</b>
+                    <li class="nav-item d-inline-block pr-2"> <!-- Added inline style -->
+                        <a class="nav-link" href="./privacy_policy.html">Privacy Policy</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script> //The function wouldn't work when inside of the popup.js file
+        function togglePopup() { 
+        const overlay = document.getElementById('popupOverlay'); 
+        overlay.classList.toggle('show'); 
+        } 
+    </script>
+    
+</body>
+</html>

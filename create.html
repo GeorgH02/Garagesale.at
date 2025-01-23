@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Flea Market - Garage Sale</title>
+    <!-- Linking Bootstrap CSS from local files -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <!-- Linking the external CSS file from the "css" folder -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- linking to the style sheet containing social media icons-->
+    <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--linking to bootstrap.bundle.js file-->
+    <script src="js/bootstrap/bootstrap.bundle.js"></script>
+    <!--linking to jquery.js file for modal functionality (for login popup box)-->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- javascript function for login popup window-->
+    <script src="./js/popup.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="container d-flex align-items-left"> <!-- Added container and flexbox classes -->
+            <!-- Logo -->
+            <div class="logo">
+                <a href="./index.html">
+                <img src="images/logo.jpg" alt="Logo"></a> <!-- Add your logo image here -->
+            </div>
+            <!-- Navbar -->
+            <nav class="navbar">
+                <ul>
+                    <li class="nav-item d-inline-block pr-2"> <!-- Added inline style -->
+                        <a class="nav-link" href="./index.html">Search</a>
+                    </li>
+					<b>|</b>
+                    <li class="nav-item d-inline-block pr-2"> <!-- Added inline style -->
+                        <a class="nav-link" href="./create.html">Create</a>
+                    </li>
+					<b>|</b>
+                    <li class="nav-item d-inline-block pr-2"> 
+                        <a class="nav-link" href="./about_us.html">About Us</a>
+                    </li>
+                </ul>
+            </nav>
+			<!-- Buttons -->
+			<div class="header-buttons ml-auto">
+				<a href="./contact_us.html" class="btn btn-primary">Contact Us</a>
+				<a href="#" class="btn btn-secondary" onclick="togglePopup()" id="login">Log In</a>
+				<a href="./sign-up.html" class="btn btn-success" id="signup">Sign Up</a>
+                <a href="#" class="btn btn-success" id="logout" style="display: none;">Log Out</a>
+			</div>
+		</div>	
+    </header>
+
+    <div class="container mt-4">
+        <!-- Form to Create Flea Market -->
+        <form action="./php/create.php" method="post" enctype="multipart/form-data">
+            <h2 id="createh2">Create Your Flea Market</h2>
+            <div class="form-group">
+                <label for="fleaMarketName">Flea Market Name:</label>
+                <input type="text" class="form-control" id="fleaMarketName" name="fleaMarketName" placeholder="Enter the name of your flea market" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="start_date">Start Date:</label>
+                <input type="date" class="form-control" id="start_date" name="start_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="end_date">End Date:</label>
+                <input type="date" class="form-control" id="end_date" name="end_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="Address: (Format: Streetname Number)"required>
+                <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="Zipcode: (Format: 1234)" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea class="form-control" id="description" name="description" rows="3" placeholder="Describe your flea market, types of items for sale, any special attractions, etc." required></textarea>
+            </div>
+    
+            <div class="form-group">
+                <label for="tags-categories:">Tags / Categories:</label>
+                <div class="checkbox-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="categoryFashion" name="tags[]" value="Fashion">
+                        <label class="form-check-label" for="categoryFashion">Fashion</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="categoryBooks" name="tags[]" value="Books">
+                        <label class="form-check-label" for="categoryBooks">Books</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="categoryGarden" name="tags[]" value="Garden">
+                        <label class="form-check-label" for="categoryGarden">Garden</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="categoryAccessories" name="tags[]" value="Accessories">
+                        <label class="form-check-label" for="categoryAccessories">Accessories</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="categorySports" name="tags[]" value="Sports">
+                        <label class="form-check-label" for="categorySports">Sports</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="categoryInstruments" name="tags[]" value="Instruments">
+                        <label class="form-check-label" for="categoryInstruments">Instruments</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="categoryElectronics" name="tags[]" value="Electronics">
+                        <label class="form-check-label" for="categoryElectronics">Electronics</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="categoryCars" name="tags[]" value="Cars">
+                        <label class="form-check-label" for="categoryCars">Cars</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="categoryTravel" name="tags[]" value="Travel">
+                        <label class="form-check-label" for="categoryTravel">Travel</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="categoryWellness" name="tags[]" value="Wellness">
+                        <label class="form-check-label" for="categoryWellness">Wellness</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="categoryHousehold" name="tags[]" value="Household">
+                        <label class="form-check-label" for="categoryHousehold">Household</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="categoryToys" name="tags[]" value="Toys">
+                        <label class="form-check-label" for="categoryToys">Toys</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="photos">Photos:</label>
+                <input type="file" class="form-control-file" id="photos" name="photos" multiple>
+            </div>
+
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="termsCheck" name="termsCheck" required>
+                <label class="form-check-label" for="termsCheck">I agree to the website's terms and conditions for hosting a flea market</label>
+            </div>
+
+             <button type="submit" id="creat-page-button" class="btn btn-new">Submit</button>  
+        </form>
+    </div>
+
+    <!-- login popup window-->    
+    <div id="popupOverlay" class="overlay-container"> 
+        <div class="popup-box"> 
+            <h2 style="color: 6DB1BF;">Log In</h2> 
+            <form class="form-container"> 
+                <label class="form-label" for="username"> Username: </label> 
+                <input class="form-input" type="text" placeholder="Enter your username" id="username" name="username" required> 
+    
+                <label class="form-label" for="psw">Password:</label> 
+                <input class="form-input" type="password" placeholder="Enter your password" id="psw" name="psw" required> 
+    
+                <button class="btn btn-new" type="submit">Submit </button> 
+            </form> 
+    
+            <button class="btn-close-popup" onclick="togglePopup()">Close </button> 
+        </div> 
+    </div> 
+
+    <footer class="text-left py-3">
+        <div class="container">
+            <nav class="navbar">
+                <ul>
+                    <li class="nav-item d-inline-block pr-2"> <!-- Added inline style -->
+                        <a class="nav-link" href="./contact_us.html">Contact</a>
+                    </li>
+                    <b>|</b>
+                    <li class="nav-item d-inline-block pr-2"> 
+                        <a class="nav-link" href="./terms_of_use.html">Terms of use</a>
+                    </li>
+                    <b>|</b>
+                    <li class="nav-item d-inline-block pr-2"> <!-- Added inline style -->
+                        <a class="nav-link" href="./privacy_policy.html">Privacy Policy</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script> //The function wouldn't work when inside of the popup.js file
+        function togglePopup() { 
+        const overlay = document.getElementById('popupOverlay'); 
+        overlay.classList.toggle('show'); 
+        } 
+    </script>
+    
+</body>
+</html>
